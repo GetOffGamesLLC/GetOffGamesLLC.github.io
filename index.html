@@ -3,78 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Out & Go Bingo - Get Off Games LLC</title>
+    <title>Get Out & Go Bingo - Scavenger Hunt for Any Outing</title>
+    <meta name="description" content="Turn any outing into a game. Real-world bingo for road trips, parties, family days and city trips, now with Destination Cards for 50 US cities. Play solo, with your group, or in teams.">
+    <link rel="canonical" href="https://getoffgamesllc.com/">
+
+    <!-- iPhone/iPad Safari shows a "Get" banner for the app -->
+    <meta name="apple-itunes-app" content="app-id=6759990931">
+
+    <!-- Link previews in Messages, Facebook, Slack, X, etc. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Get Out & Go Bingo">
+    <meta property="og:title" content="Get Out & Go Bingo - Now with 50 Destination Cards">
+    <meta property="og:description" content="Turn any outing into a game. Real-world bingo for road trips, parties, family days and city trips.">
+    <meta property="og:url" content="https://getoffgamesllc.com/">
+    <meta property="og:image" content="https://getoffgamesllc.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Now with Destination Cards: 50 cities. A bingo card for every trip.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #333;
+            color: white;
             background: linear-gradient(135deg, #00c9e0, #0096e0);
             min-height: 100vh;
         }
-        .hero {
-            text-align: center;
-            padding: 80px 20px 60px;
-            color: white;
+        a { color: inherit; }
+        .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+        .app-store img { display: block; height: 56px; width: auto; }
+        .app-store { display: inline-block; border-radius: 12px; transition: transform 0.15s; }
+        .app-store:hover { transform: scale(1.04); }
+
+        /* Hero */
+        .hero { text-align: center; padding: 64px 0 48px; }
+        .hero .icon {
+            width: 112px; height: 112px; border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            margin-bottom: 24px;
         }
         .hero h1 {
-            font-size: 3.5em;
+            font-size: clamp(2.2em, 7vw, 3.5em);
             font-weight: 900;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
-        .hero .tagline {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 40px;
-        }
+        .hero .tagline { font-size: 1.35em; font-weight: 600; margin-bottom: 20px; }
         .hero .description {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-size: 1.1em;
-            line-height: 1.6;
-            opacity: 0.85;
+            max-width: 600px; margin: 0 auto 32px;
+            font-size: 1.1em; line-height: 1.6; opacity: 0.92;
         }
+
+        /* Destination Cards */
+        .destinations {
+            background: #5B21B6;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(30,6,70,0.35);
+            margin-bottom: 64px;
+        }
+        .destinations img { display: block; width: 100%; height: auto; }
+        .destinations .text { padding: 28px 32px 32px; text-align: center; }
+        .destinations h2 { font-size: 1.6em; margin-bottom: 10px; }
+        .destinations p { max-width: 640px; margin: 0 auto; line-height: 1.6; opacity: 0.92; }
+
+        /* Screenshots */
+        .section-title { text-align: center; font-size: 1.8em; margin-bottom: 8px; }
+        .section-sub { text-align: center; opacity: 0.9; margin-bottom: 28px; line-height: 1.5; }
+        .screens {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+        .screens img {
+            width: 100%; height: auto; display: block;
+            border-radius: 22px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+        @media (max-width: 720px) {
+            /* Swipeable strip on phones */
+            .screens {
+                display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+                gap: 16px; margin: 0 -20px 56px; padding: 0 20px 12px;
+            }
+            .screens img { flex: none; width: 62%; scroll-snap-align: center; }
+        }
+
+        /* Ways to play */
         .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            max-width: 900px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
         }
         .feature {
             background: rgba(255,255,255,0.15);
             border-radius: 16px;
-            padding: 30px 25px;
-            width: 250px;
+            padding: 26px 22px;
             text-align: center;
-            color: white;
             backdrop-filter: blur(10px);
         }
-        .feature .icon { font-size: 2.5em; margin-bottom: 15px; }
+        .feature .emoji { font-size: 2.3em; margin-bottom: 12px; }
         .feature h3 { font-size: 1.1em; margin-bottom: 8px; }
-        .feature p { font-size: 0.9em; opacity: 0.8; line-height: 1.5; }
-        .store-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-        .store-badge {
-            background: rgba(0,0,0,0.3);
-            color: white;
-            padding: 14px 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: background 0.2s;
-        }
-        .store-badge:hover { background: rgba(0,0,0,0.5); }
+        .feature p { font-size: 0.95em; opacity: 0.88; line-height: 1.5; }
+        .modes { text-align: center; opacity: 0.9; line-height: 1.6; margin-bottom: 64px; }
+
+        /* Closing call to action */
+        .cta { text-align: center; padding-bottom: 64px; }
+        .cta h2 { font-size: 1.8em; margin-bottom: 20px; }
+
         footer {
             background: rgba(0,0,0,0.15);
             padding: 30px 20px;
@@ -87,50 +131,88 @@
             margin: 0 15px;
         }
         footer a:hover { text-decoration: underline; }
-        footer .copyright {
-            margin-top: 15px;
-            font-size: 0.85em;
-            opacity: 0.7;
-        }
+        @media (max-width: 480px) { footer a { margin: 0 8px; } }
+        footer .copyright { margin-top: 15px; font-size: 0.85em; opacity: 0.7; }
+        footer .mission { margin-top: 15px; font-style: italic; font-size: 1.05em; opacity: 0.85; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <h1>Get Out & Go Bingo</h1>
-        <p class="tagline">Take bingo to the real world.</p>
-        <p class="description">
-            Play bingo with real-life scenarios. Go solo, share a card with friends, or
-            compete in team races. Perfect for road trips, family outings, parties, and
-            everyday adventures.
+    <div class="wrap">
+        <section class="hero">
+            <img class="icon" src="/assets/app-icon.jpg" alt="Get Out & Go Bingo app icon" width="112" height="112">
+            <h1>Get Out & Go Bingo</h1>
+            <p class="tagline">Scavenger Hunt for Any Outing</p>
+            <p class="description">
+                Turn road trips, parties, family days and city trips into a game.
+                Spot what's on your card, mark it off, and race your friends to bingo.
+            </p>
+            <a class="app-store" href="https://apps.apple.com/app/id6759990931">
+                <img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="168" height="56">
+            </a>
+        </section>
+
+        <a class="destinations" href="https://apps.apple.com/app/id6759990931" style="display:block; text-decoration:none;">
+            <picture>
+                <source media="(max-width: 720px)" srcset="/assets/destinations-narrow.jpg">
+                <img src="/assets/destinations-wide.jpg" width="2400" height="1029"
+                     alt="Now with Destination Cards: 50 cities. A bingo card for every trip.">
+            </picture>
+            <div class="text">
+                <h2>New: Destination Cards for 50 US cities</h2>
+                <p>
+                    Heading to Orlando, New York, Nashville or one of 47 other cities?
+                    Download its Destination Card and use the clues to see everything the
+                    city has to offer.
+                </p>
+            </div>
+        </a>
+
+        <h2 class="section-title">See how it works</h2>
+        <p class="section-sub">Everything you need to turn time out into game time.</p>
+        <div class="screens">
+            <img src="/assets/screens/turn-any-outing.jpg" width="600" height="1298" loading="lazy" alt="Turn any outing into a game">
+            <img src="/assets/screens/bomb-your-friends.jpg" width="600" height="1298" loading="lazy" alt="Bomb your friends' tiles">
+            <img src="/assets/screens/play-with-group.jpg" width="600" height="1298" loading="lazy" alt="Play with your whole group using a join code">
+            <img src="/assets/screens/explore-themes.jpg" width="600" height="1298" loading="lazy" alt="Explore real-world themes like Beach, Airport and Road Trip">
+            <img src="/assets/screens/create-your-clues.jpg" width="600" height="1298" loading="lazy" alt="Create your own clues">
+            <img src="/assets/screens/patterns-skill-levels.jpg" width="600" height="1298" loading="lazy" alt="Bingo patterns and skill levels">
+        </div>
+
+        <h2 class="section-title">Why people play</h2>
+        <p class="section-sub">From a quick solo game to a 20-person showdown.</p>
+        <div class="features">
+            <div class="feature">
+                <div class="emoji">&#x1F697;</div>
+                <h3>Turn any outing into a game</h3>
+                <p>Beach, airport, road trip, amusement park and more. Pick one of 11 themes and get a fresh card of things to find.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">&#x1F4A3;</div>
+                <h3>Bomb your friends' tiles</h3>
+                <p>In competitions, drop a bomb on a rival's card. It swaps one of their squares for a new clue, and if they'd already found it, they lose it. No lead is safe!</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">&#x1F465;</div>
+                <h3>Play with your whole group</h3>
+                <p>Share a join code and everyone plays on their own phone. Work together, or split into teams and race.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">&#x270F;&#xFE0F;</div>
+                <h3>Create your own clues</h3>
+                <p>Write cards for birthdays, office parties or your own neighborhood.</p>
+            </div>
+        </div>
+        <p class="modes">
+            Play solo, as a group, team against team, or every player for themselves.
+            Adult and Junior modes keep it right for the crowd you're with.
         </p>
-    </div>
 
-    <div class="features">
-        <div class="feature">
-            <div class="icon">&#x1F464;</div>
-            <h3>Solo Play</h3>
-            <p>Single user play</p>
-        </div>
-        <div class="feature">
-            <div class="icon">&#x1F465;</div>
-            <h3>Group Play</h3>
-            <p>Group collaborates to solve card</p>
-        </div>
-        <div class="feature">
-            <div class="icon">&#x1F3C1;</div>
-            <h3>Team Competition</h3>
-            <p>Teams race against teams</p>
-        </div>
-        <div class="feature">
-            <div class="icon">&#x1F3C6;</div>
-            <h3>Individual Competition</h3>
-            <p>Compete against individual players</p>
-        </div>
-    </div>
-
-    <div class="store-badges">
-        <a href="#" class="store-badge">Available Now on the App Store</a>
-        <a href="#" class="store-badge">Coming Soon on Google Play</a>
+        <section class="cta">
+            <h2>Ready to get out and go?</h2>
+            <a class="app-store" href="https://apps.apple.com/app/id6759990931">
+                <img src="/assets/app-store-badge.svg" alt="Download on the App Store" width="168" height="56">
+            </a>
+        </section>
     </div>
 
     <footer>
@@ -140,7 +222,7 @@
             <a href="/support.html">Support</a>
         </div>
         <p class="copyright">&copy; 2026 Get Off Games LLC. All rights reserved. &middot; <a href="mailto:support@getoffgamesllc.com" style="margin: 0;">support@getoffgamesllc.com</a></p>
-        <p class="copyright" style="font-style: italic; font-size: 18px;">"Our mission is to build fun, engaging apps that encourage people to get off the couch and explore the world around them."</p>
+        <p class="mission">"Our mission is to build fun, engaging apps that encourage people to get off the couch and explore the world around them."</p>
     </footer>
 </body>
 </html>
